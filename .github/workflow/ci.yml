@@ -1,0 +1,26 @@
+name: Python CI
+
+on:                             # cuando hago un push a la rama main se hace un pull request a main
+  push:
+    branches: [ main ] 
+  pull_request:
+   branches: [ main ]
+
+jobs:
+  build:                          #crea automaticamente una maquina virtual de ubuntu
+    runs_on: ubuntu-latest
+    steps:
+    - name: Checkout repository  #le digo que haga un checkout del repositorio
+      uses: actions/checkout@v4
+    
+    - name: Set up Python             #le digo que haga un set up de python con la version 3.8
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.8
+
+    - name: Run tests                 #le digo que lance esos archivos de los tests
+      run:  |
+        python -m unittest test_suma.py
+        python -m unittest test_resta.py
+        python -m unittest test_multiplicacion.py
+        python -m unittest test_division.py
