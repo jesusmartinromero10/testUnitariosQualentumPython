@@ -21,4 +21,6 @@ jobs:
     - name: Run tests                 #le digo que lance esos archivos de los tests
       run:  |
         python -m unittest test_suma.py
-       
+        python -m unittest test_resta.py
+        python -m unittest test_multiplicacion.py
+        python -m unittest test_division.py
