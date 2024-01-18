@@ -8,7 +8,7 @@ on:                             # cuando hago un push a la rama main se hace un 
 
 jobs:
   build:                          #crea automaticamente una maquina virtual de ubuntu
-    runs_on: ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
     - name: Checkout repository  #le digo que haga un checkout del repositorio
       uses: actions/checkout@v4
@@ -21,4 +21,6 @@ jobs:
     - name: Run tests                 #le digo que lance esos archivos de los tests
       run:  |
         python -m unittest test_suma.py
-        
+        python -m unittest test_resta.py
+        python -m unittest test_multiplicacion.py
+        python -m unittest test_division.py
